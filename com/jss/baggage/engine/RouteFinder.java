@@ -34,7 +34,7 @@ public class RouteFinder {
 		departures = new HashMap<String, Departures>();
 		baggages = new ArrayList<Baggage>();
 
-		System.out.println("Please Provide inputs :");
+		log("Please Provide inputs :");
 		Scanner scan = new Scanner(System.in);
 		String line;
 
@@ -74,15 +74,15 @@ public class RouteFinder {
 	private static boolean validate(){
 		boolean result = true;
 		if(baggages.isEmpty()){
-			System.out.println("Error : Bags are not available.");
+			log("Error : Bags are not available.");
 			result = false;
 		}
 		if(departures.isEmpty()){
-			System.out.println("Error : Departure information is not available.");
+			log("Error : Departure information is not available.");
 			result = false;
 		}
 		if(nodes.isEmpty()){
-			System.out.println("Error : Conveyor System is not available.");
+			log("Error : Conveyor System is not available.");
 			result = false;
 		}
 		return result;
@@ -111,7 +111,7 @@ public class RouteFinder {
 			} catch (Exception e) {
 				output.append(COLON).append(ERROR_MSG);
 			}
-			System.out.println(output);
+			log(output.toString());
 
 		}	
 		
@@ -128,7 +128,7 @@ public class RouteFinder {
 			// set bi-direction
 			edges.add(new Edge(dest, source, duration));
 		}catch(Exception e){
-			System.out.println("Invalid Conveyour : " + line);
+			log("Invalid Conveyour : " + line);
 		}
 	}
 
@@ -146,7 +146,7 @@ public class RouteFinder {
 			String args[] = line.split(SPACE);
 			baggages.add(new Baggage(args[0], args[1], args[2]));
 		}catch(Exception e){
-			System.out.println("Invalid Baggage : " + line);
+			log("Invalid Baggage : " + line);
 		}
 	}
 
@@ -155,7 +155,7 @@ public class RouteFinder {
 			String args[] = line.split(SPACE);
 			departures.put(args[0], new Departures(args[0], args[1], args[2], args[3]));
 		}catch(Exception e){
-			System.out.println("Invalid Departure : " + line);
+			log("Invalid Departure : " + line);
 		}
 	}
 	
@@ -181,5 +181,9 @@ public class RouteFinder {
 			return lastStatusCode;
 		}
 
+	}
+	
+	public static void log(String str){
+		System.out.println(str);
 	}
 }
