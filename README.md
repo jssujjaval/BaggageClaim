@@ -1,7 +1,7 @@
 # BaggageClaim
 Airport Baggage - Pathfinding
 
-- Please run - com.jss.baggage.engine.RouteFinder
+- Please run - java com.jss.baggage.engine.RouteFinder
 - Enter your inputs on command prompt and hit an additional enter key to start processing
 - In case of invalid input - System will print an error and continue processing rest of the inputs
 - Dijkstra's algorithm is used to find the shortest path
